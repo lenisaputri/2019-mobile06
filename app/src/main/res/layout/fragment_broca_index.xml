@@ -82,15 +82,15 @@
             android:id="@+id/input_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Input your height (cm)"
+            android:inputType=""
+            android:text=""
             android:textColor="#808080"
-            android:inputType="textPersonName"
-            android:text="Input your height (cm)"
-            app:layout_constraintTop_toBottomOf="@+id/group_gender"
             app:layout_constraintLeft_toRightOf="@+id/guideline2"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/group_gender" />
 
         <Button
             android:id="@+id/button_calculate"
