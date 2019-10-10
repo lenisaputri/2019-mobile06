@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.BodyMassFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.2"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Body Mass Index"
+            android:textSize="32sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mass"
+            android:textSize="16sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/text_title"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <EditText
+            android:id="@+id/input_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Input your weight (kg)"
+            android:layout_marginRight="15dp"
+            android:inputType="number"
+            app:layout_constraintLeft_toRightOf="@id/guideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_title"/>
+
+        <TextView
+            android:id="@+id/text_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height"
+            android:textSize="16sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/text_weight"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <EditText
+            android:id="@+id/input_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Input your height (cm)"
+            android:layout_marginRight="15dp"
+            android:inputType="number"
+            app:layout_constraintLeft_toRightOf="@id/guideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_weight"/>
+
+        <Button
+            android:id="@+id/button_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="15dp"
+            android:text="Calculate"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_height" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

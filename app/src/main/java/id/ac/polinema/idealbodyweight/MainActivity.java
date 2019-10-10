@@ -3,23 +3,24 @@ package id.ac.polinema.idealbodyweight;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import id.ac.polinema.idealbodyweight.fragments.AboutFragment;
+import id.ac.polinema.idealbodyweight.fragments.BodyMassFragment;
 import id.ac.polinema.idealbodyweight.fragments.BrocaIndexFragment;
 import id.ac.polinema.idealbodyweight.fragments.MenuFragment;
 import id.ac.polinema.idealbodyweight.fragments.ResultFragment;
 
 public class MainActivity extends AppCompatActivity implements MenuFragment.OnFragmentInteractionListener,
-		BrocaIndexFragment.OnFragmentInteractionListener, ResultFragment.OnFragmentInteractionListener{
+		BrocaIndexFragment.OnFragmentInteractionListener, ResultFragment.OnFragmentInteractionListener,
+		BodyMassFragment.OnFragmentInteractionListener {
 
 	private AboutFragment aboutFragment;
 	private MenuFragment menuFragment;
 	private BrocaIndexFragment brocaIndexFragment;
+	private BodyMassFragment bodyMassIndexFragment;
 	private ResultFragment resultFragment;
 
 	@Override
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnFr
 				.commit();
 
 		brocaIndexFragment = new BrocaIndexFragment();
+		bodyMassIndexFragment = new BodyMassFragment();
 		resultFragment = new ResultFragment();
 	}
 
@@ -63,7 +65,9 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnFr
 
 	@Override
 	public void onBodyMassIndexButtonClicked() {
-
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.fragment_container, bodyMassIndexFragment)
+				.commit();
 	}
 
 	@Override
@@ -78,6 +82,14 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.OnFr
 	public void onTryAgainButtonClicked(String tag) {
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.fragment_container, brocaIndexFragment)
+				.commit();
+	}
+
+	@Override
+	public void onCalculateBodyMassIndexClicked(float index) {
+		resultFragment.setInformation(String.format("Your Body Mass Index is %.2f", index));
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.fragment_container, resultFragment, "BODY_MASS_INDEX")
 				.commit();
 	}
 }
